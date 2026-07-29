@@ -13,7 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: compile
-      run: gcc test_espacopelotempo.c -o test_espacopelotempo
-    - name: execute
+
+    - name: compile test
+      run: gcc teste_espacopelotempo.c -o test_espacopelotempo -lm
+
+    - name: execute test
       run: ./test_espacopelotempo
+
+    - name: compile main
+      run: gcc espacopelotempo.c -o espacopelotempo -lm
+
+    - name: execute main
+      run: ./espacopelotempo 40 2 3
+
+    - name: mostrar o conteúdo do arquivo criado
+      run: cat espacopelotempo.txt
