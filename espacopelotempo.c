@@ -24,5 +24,23 @@ int main(int argc, char const *argv[])
         printf("digite a aceleracao (ou 0): ");
         scanf("%lf", &aceleracao);
     } else {
-        printf("digite o nome do programa seguido de 2 ou 3 argumentos (ex: espacopelotempo 40 2) (ex: espacopelotempo 40 2 3)\n");
-        printf("sendo 40 a velocidade, 2 o tempo, e 3 a aceleracao, esses valores
+        printf("digite o nome do programa seguido de 2 ou 3 argumentos\n");
+        return 0;
+    }
+
+    double res = espacopelotempo(velocidade, tempo, aceleracao);
+
+    printf("resultado: %f\n", res);
+    printf("\nFeito por Benjamim Messias\n");
+
+    FILE *arquivo = fopen("espacopelotempo.txt", "w");
+    if (arquivo != NULL) {
+        fprintf(arquivo, "resultado: %f\n", res);
+        fprintf(arquivo, "\nFeito por Benjamim Messias\n");
+        fclose(arquivo);
+    } else {
+        printf("Erro ao criar o arquivo espacopelotempo.txt\n");
+    }
+
+    return 0;
+}
